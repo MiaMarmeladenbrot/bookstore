@@ -1,6 +1,6 @@
-// user authenticaten ✅
 // user prüfen ✅
 // Variable mit Order-Daten erstellen (date und state sind default aus Model, price ist Summe der products.prices) ✅
+// dazu in Products nach den ids suchen und irgendwie über die ids die preise auslesen und addieren ✅
 // order createn ✅
 
 import { Order } from "../../models/Order.js";
