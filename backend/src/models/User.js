@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { generateRandomSixDigitCode } from "../utils/sixDigitCode.js";
 
 const userSchema = new mongoose.Schema(
   {

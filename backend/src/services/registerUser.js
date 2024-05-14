@@ -1,9 +1,9 @@
-// um User zu registieren, brauchen wir firstname, lastname, email, pw aus req.body
-// dann muss pw gehasht werden
-// außerdem muss ein sixDigitCode erstellt werden (sollte automatisiert passieren)
-// isEmailVerified sollte automatisiert auf false stehen
-// eine Verifizierungsmail sollte rausgeschickt werden via google apis gmail
-// returnen wollen wir UserDaten ohne hash-infos, sixDigitCode, isEmailVerified
+// um User zu registieren, brauchen wir firstname, lastname, email, pw aus req.body ✅
+// dann muss pw gehasht werden ✅
+// außerdem muss ein sixDigitCode erstellt werden (sollte automatisiert passieren durch user-Model) ✅
+// isEmailVerified sollte automatisiert auf false stehen ✅
+// eine Verifizierungsmail sollte rausgeschickt werden via google apis gmail ✅
+// returnen wollen wir UserDaten ohne hash-infos, sixDigitCode, isEmailVerified ✅
 
 import { User } from "../models/User.js";
 import { generateRandomSalt, hash } from "../utils/hash.js";
@@ -22,8 +22,8 @@ export async function registerUser({ firstname, lastname, email, password }) {
     email,
     passwordHash,
     passwordSalt,
-    // isEmailVerified, // müsste automatisch entstehen mit default-Wert false
-    // sixDigitCode, // müsste automatisch entstehen mit default-Wert false
+    // isEmailVerified, // müsste durch user-Model automatisch entstehen mit default-Wert false
+    // sixDigitCode, // müsste durch user-Model automatisch entstehen mit default-Wert false
   });
 
   await sendEmailVerification(user);
