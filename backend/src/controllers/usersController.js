@@ -60,9 +60,25 @@ async function changeUserAdminRoleCtrl(req, res) {
   }
 }
 
+async function patchEditUserCtrl(req, res) {
+  try {
+    const userUpdateInfo = req.body;
+    const userId = req.authenticatedUserId;
+
+    const editedUser = await UsersService.editUser(userId, userUpdateInfo);
+    res.json(editedUser);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: err.messsage || "Could not edit this user." });
+  }
+}
+
 export const UsersController = {
   postCreateNewUserCtrl,
   postVerifyUserEmailCtrl,
   postLoginUserCtrl,
   changeUserAdminRoleCtrl,
+  patchEditUserCtrl,
 };

@@ -1,9 +1,9 @@
-// nur admin hat berechtigung: Authentifizierung via jwt im usersRouter
-//  .patch("/api/v1/users/:userId/changeRole", doJwtAuth, UsersController.patchChangeAdminRoleCtrl );
-// hier dann als erstes abfragen, ob isAdmin des authentifizierten Users true ist
-// falls ja: userId aus req.params aus Ctrl im Users-model finden
-// status von isAdmin dieser userId aufs Gegenteil setzen
-// neuen Status returnen
+// nur admin hat berechtigung: Authentifizierung via jwt im usersRouter ✅
+//  .patch("/api/v1/users/:userId/changeRole", doJwtAuth, UsersController.changeUserAdminRoleCtrl );
+// hier dann als erstes abfragen, ob isAdmin des authentifizierten Users true ist ✅
+// falls ja: userId aus req.params aus Ctrl im Users-model finden ✅
+// status von isAdmin dieser userId aufs Gegenteil setzen ✅
+// User + neuen Status returnen ✅
 
 import { User } from "../models/User.js";
 import { userToView } from "../utils/userToView.js";
