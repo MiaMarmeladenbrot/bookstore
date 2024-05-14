@@ -4,4 +4,5 @@ import { OrdersController } from "../controllers/ordersController.js";
 
 export const ordersRouter = express
   .Router()
-  .post("/api/v1/orders", doJwtAuth, OrdersController.postAddOrderCtrl);
+  .post("/api/v1/orders", doJwtAuth, OrdersController.postAddOrderCtrl)
+  .get("/api/v1/orders", doJwtAuth, OrdersController.getShowAllOrdersCtrl);

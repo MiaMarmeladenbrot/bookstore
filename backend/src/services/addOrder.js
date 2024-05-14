@@ -1,7 +1,7 @@
-// user authenticaten
-// user prüfen
-// Variable mit Order-Daten erstellen (date und state sind default aus Model, price ist Summe der products.prices)
-// order createn
+// user authenticaten ✅
+// user prüfen ✅
+// Variable mit Order-Daten erstellen (date und state sind default aus Model, price ist Summe der products.prices) ✅
+// order createn ✅
 
 import { Order } from "../models/Order.js";
 import { Product } from "../models/Product.js";
