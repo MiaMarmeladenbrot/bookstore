@@ -1,5 +1,6 @@
 import { addProduct } from "./addProduct.js";
 import { changeUserAdminRole } from "./changeUserAdminRole.js";
+import { deleteProduct } from "./deleteProduct.js";
 import { editProduct } from "./editProduct.js";
 import { editUser } from "./editUser.js";
 import { loginUser } from "./loginUser.js";
@@ -19,4 +20,5 @@ export const ProductsService = {
   addProduct,
   showAllProducts,
   editProduct,
+  deleteProduct,
 };

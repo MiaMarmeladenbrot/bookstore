@@ -10,4 +10,9 @@ export const productsRouter = express
     "/api/v1/products/:productId",
     doJwtAuth,
     ProductsController.patchEditProductCtrl
+  )
+  .delete(
+    "/api/v1/products/:productId",
+    doJwtAuth,
+    ProductsController.deleteProductCtrl
   );

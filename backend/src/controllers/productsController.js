@@ -50,8 +50,26 @@ async function patchEditProductCtrl(req, res) {
   }
 }
 
+async function deleteProductCtrl(req, res) {
+  try {
+    const authenticatedUserId = req.authenticatedUserId;
+    const productId = req.params.productId;
+    const deletedProduct = await ProductsService.deleteProduct(
+      authenticatedUserId,
+      productId
+    );
+    res.json({ deletedProduct });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not delete this product." });
+  }
+}
+
 export const ProductsController = {
   postAddProductCtrl,
   getShowAllProductsCtrl,
   patchEditProductCtrl,
+  deleteProductCtrl,
 };
