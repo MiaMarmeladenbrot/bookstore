@@ -27,7 +27,23 @@ async function postVerifyUserEmailCtrl(req, res) {
   }
 }
 
+async function postLoginUserCtrl(req, res) {
+  try {
+    const loginInfo = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+    const loggedUser = await UsersService.loginUser(loginInfo);
+    res.json({ loggedUser });
+  } catch (err) {
+    console.log(err);
+    res.json({ err, message: err.message || "Could not login user" });
+  }
+}
+
 export const UsersController = {
   postCreateNewUserCtrl,
   postVerifyUserEmailCtrl,
+  postLoginUserCtrl,
 };
