@@ -1,9 +1,9 @@
-// Post-Anfrage mit email und password im req.body
-// prüfen, ob User existiert
-// prüfen, ob Email verifiziert ist
-// prüfen, ob Passwort korrekt ist
-// Token erstellen
-// returnen userToView + Token
+// Post-Anfrage mit email und password im req.body ✅
+// prüfen, ob User existiert ✅
+// prüfen, ob Email verifiziert ist ✅
+// prüfen, ob Passwort korrekt ist ✅
+// Token erstellen mit externer createToken() ✅
+// returnen userToView + Token ✅
 
 import { User } from "../models/User.js";
 import { createToken } from "../utils/createToken.js";

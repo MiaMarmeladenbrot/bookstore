@@ -42,8 +42,27 @@ async function postLoginUserCtrl(req, res) {
   }
 }
 
+async function changeUserAdminRoleCtrl(req, res) {
+  try {
+    const updateInfo = {
+      adminUserId: req.authenticatedUserId,
+      userId: req.params.userId,
+      isAdmin: req.body.isAdmin,
+    };
+    const changedUser = await UsersService.changeUserAdminRole(updateInfo);
+    res.json({ changedUser });
+  } catch (err) {
+    console.log(err);
+    res.json({
+      err,
+      message: err.message || "Could not change this user's role.",
+    });
+  }
+}
+
 export const UsersController = {
   postCreateNewUserCtrl,
   postVerifyUserEmailCtrl,
   postLoginUserCtrl,
+  changeUserAdminRoleCtrl,
 };
