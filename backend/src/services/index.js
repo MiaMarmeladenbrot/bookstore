@@ -1,3 +1,4 @@
+import { addOrder } from "./addOrder.js";
 import { addProduct } from "./addProduct.js";
 import { changeUserAdminRole } from "./changeUserAdminRole.js";
 import { deleteProduct } from "./deleteProduct.js";
@@ -21,4 +22,8 @@ export const ProductsService = {
   showAllProducts,
   editProduct,
   deleteProduct,
+};
+
+export const OrderService = {
+  addOrder,
 };
