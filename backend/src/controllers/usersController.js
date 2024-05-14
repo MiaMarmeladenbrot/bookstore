@@ -63,15 +63,20 @@ async function changeUserAdminRoleCtrl(req, res) {
 async function patchEditUserCtrl(req, res) {
   try {
     const userUpdateInfo = req.body;
-    const userId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUserId;
+    const userId = req.params.userId;
 
-    const editedUser = await UsersService.editUser(userId, userUpdateInfo);
+    const editedUser = await UsersService.editUser(
+      authenticatedUserId,
+      userId,
+      userUpdateInfo
+    );
     res.json(editedUser);
   } catch (err) {
     console.log(err);
     res
       .status(500)
-      .json({ err, message: err.messsage || "Could not edit this user." });
+      .json({ err, message: err.message || "Could not edit this user." });
   }
 }
 

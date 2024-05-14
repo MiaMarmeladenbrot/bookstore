@@ -8,6 +8,7 @@ import { loginUser } from "./loginUser.js";
 import { registerUser } from "./registerUser.js";
 import { showAllOrders } from "./showAllOrders.js";
 import { showAllProducts } from "./showAllProducts.js";
+import { showUserOrders } from "./showUserOrders.js";
 import { verifyUserEmail } from "./verifyUserEmail.js";
 
 export const UsersService = {
@@ -28,4 +29,5 @@ export const ProductsService = {
 export const OrderService = {
   addOrder,
   showAllOrders,
+  showUserOrders,
 };

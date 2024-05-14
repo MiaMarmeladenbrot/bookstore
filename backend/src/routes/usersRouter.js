@@ -12,4 +12,4 @@ export const usersRouter = express
     doJwtAuth,
     UsersController.changeUserAdminRoleCtrl
   )
-  .patch("/api/v1/users/edit", doJwtAuth, UsersController.patchEditUserCtrl);
+  .patch("/api/v1/users/:userId", doJwtAuth, UsersController.patchEditUserCtrl);

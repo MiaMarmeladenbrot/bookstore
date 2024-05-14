@@ -37,7 +37,25 @@ async function getShowAllOrdersCtrl(req, res) {
   }
 }
 
+async function getShowUserOrdersCtrl(req, res) {
+  try {
+    const authenticatedUserId = req.authenticatedUserId;
+    const userId = req.params.userId;
+    const userOrders = await OrderService.showUserOrders(
+      authenticatedUserId,
+      userId
+    );
+    res.json({ userOrders });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, messsage: err.message || "Could not find user orders." });
+  }
+}
+
 export const OrdersController = {
   postAddOrderCtrl,
   getShowAllOrdersCtrl,
+  getShowUserOrdersCtrl,
 };
