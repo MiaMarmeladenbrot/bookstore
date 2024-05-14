@@ -1,3 +1,4 @@
+import { addProduct } from "./addProduct.js";
 import { changeUserAdminRole } from "./changeUserAdminRole.js";
 import { editUser } from "./editUser.js";
 import { loginUser } from "./loginUser.js";
@@ -10,4 +11,8 @@ export const UsersService = {
   loginUser,
   changeUserAdminRole,
   editUser,
+};
+
+export const ProductsService = {
+  addProduct,
 };
