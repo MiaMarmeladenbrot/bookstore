@@ -1,5 +1,5 @@
 // userId und authId müssen gleich sein ODER authId muss admin-Status haben
-// andernfalls ist Anfragender nicht authorisiert, alle den User zu ändern
+// andernfalls ist Anfragender nicht authorisiert, den User zu ändern
 
 import { User } from "../models/User.js";
 import { userToView } from "../utils/userToView.js";

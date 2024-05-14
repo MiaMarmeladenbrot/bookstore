@@ -10,4 +10,9 @@ export const ordersRouter = express
     "/api/v1/orders/:userId",
     doJwtAuth,
     OrdersController.getShowUserOrdersCtrl
+  )
+  .patch(
+    "/api/v1/orders/:orderId",
+    doJwtAuth,
+    OrdersController.patchEditOrderCtrl
   );

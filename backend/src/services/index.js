@@ -2,6 +2,7 @@ import { addOrder } from "./addOrder.js";
 import { addProduct } from "./addProduct.js";
 import { changeUserAdminRole } from "./changeUserAdminRole.js";
 import { deleteProduct } from "./deleteProduct.js";
+import { editOrder } from "./editOrder.js";
 import { editProduct } from "./editProduct.js";
 import { editUser } from "./editUser.js";
 import { loginUser } from "./loginUser.js";
@@ -30,4 +31,5 @@ export const OrderService = {
   addOrder,
   showAllOrders,
   showUserOrders,
+  editOrder,
 };

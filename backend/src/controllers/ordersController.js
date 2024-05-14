@@ -54,8 +54,31 @@ async function getShowUserOrdersCtrl(req, res) {
   }
 }
 
+async function patchEditOrderCtrl(req, res) {
+  try {
+    const authenticatedUserId = req.authenticatedUserId;
+    const userId = req.body.customer;
+    const orderId = req.params.orderId;
+    const orderUpdateInfo = req.body;
+
+    const editedOrder = await OrderService.editOrder(
+      authenticatedUserId,
+      userId,
+      orderId,
+      orderUpdateInfo
+    );
+    res.json({ editedOrder });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not edit this order." });
+  }
+}
+
 export const OrdersController = {
   postAddOrderCtrl,
   getShowAllOrdersCtrl,
   getShowUserOrdersCtrl,
+  patchEditOrderCtrl,
 };
