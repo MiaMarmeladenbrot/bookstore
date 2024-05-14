@@ -18,6 +18,19 @@ async function postAddProductCtrl(req, res) {
   }
 }
 
+async function getShowAllProductsCtrl(req, res) {
+  try {
+    const allProducts = await ProductsService.showAllProducts();
+    res.json({ allProducts });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not get products" });
+  }
+}
+
 export const ProductsController = {
   postAddProductCtrl,
+  getShowAllProductsCtrl,
 };
