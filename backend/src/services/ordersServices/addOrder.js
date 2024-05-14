@@ -3,9 +3,9 @@
 // Variable mit Order-Daten erstellen (date und state sind default aus Model, price ist Summe der products.prices) ✅
 // order createn ✅
 
-import { Order } from "../models/Order.js";
-import { Product } from "../models/Product.js";
-import { User } from "../models/User.js";
+import { Order } from "../../models/Order.js";
+import { Product } from "../../models/Product.js";
+import { User } from "../../models/User.js";
 
 export async function addOrder(authenticatedUserId, orderInfo) {
   const user = await User.findById(authenticatedUserId);

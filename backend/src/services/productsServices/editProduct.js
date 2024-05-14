@@ -3,8 +3,8 @@
 // Produkt anpassen
 // neues Produkt returnen
 
-import { Product } from "../models/Product.js";
-import { User } from "../models/User.js";
+import { Product } from "../../models/Product.js";
+import { User } from "../../models/User.js";
 
 export async function editProduct(
   authenticatedUserId,

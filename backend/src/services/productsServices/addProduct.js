@@ -2,8 +2,8 @@
 // prüfen, ob ISBN schon existiert
 // Produkt anlegen
 
-import { Product } from "../models/Product.js";
-import { User } from "../models/User.js";
+import { Product } from "../../models/Product.js";
+import { User } from "../../models/User.js";
 
 export async function addProduct(authenticatedUserId, productInfo) {
   const user = await User.findById(authenticatedUserId);

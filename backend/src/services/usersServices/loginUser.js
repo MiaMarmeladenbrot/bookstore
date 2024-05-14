@@ -5,10 +5,10 @@
 // Token erstellen mit externer createToken() ✅
 // returnen userToView + Token ✅
 
-import { User } from "../models/User.js";
-import { createToken } from "../utils/createToken.js";
-import { hash } from "../utils/hash.js";
-import { userToView } from "../utils/userToView.js";
+import { User } from "../../models/User.js";
+import { createToken } from "../../utils/createToken.js";
+import { hash } from "../../utils/hash.js";
+import { userToView } from "../../utils/userToView.js";
 
 export async function loginUser({ email, password }) {
   const user = await User.findOne({ email });

@@ -5,8 +5,8 @@
 // status von isAdmin dieser userId aufs Gegenteil setzen ✅
 // User + neuen Status returnen ✅
 
-import { User } from "../models/User.js";
-import { userToView } from "../utils/userToView.js";
+import { User } from "../../models/User.js";
+import { userToView } from "../../utils/userToView.js";
 
 export async function changeUserAdminRole({ adminUserId, userId, isAdmin }) {
   const adminUser = await User.findById(adminUserId);

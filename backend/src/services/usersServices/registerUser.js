@@ -5,10 +5,10 @@
 // eine Verifizierungsmail sollte rausgeschickt werden via google apis gmail ✅
 // returnen wollen wir UserDaten ohne hash-infos, sixDigitCode, isEmailVerified ✅
 
-import { User } from "../models/User.js";
-import { generateRandomSalt, hash } from "../utils/hash.js";
-import { sendEmail } from "../utils/sendEmail.js";
-import { userToView } from "../utils/userToView.js";
+import { User } from "../../models/User.js";
+import { generateRandomSalt, hash } from "../../utils/hash.js";
+import { sendEmail } from "../../utils/sendEmail.js";
+import { userToView } from "../../utils/userToView.js";
 
 export async function registerUser({ firstname, lastname, email, password }) {
   const foundUser = await User.findOne({ email });

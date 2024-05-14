@@ -2,7 +2,7 @@
 // sixDigitCode mit dem im gefundenen User abgleichen ✅
 // isEmailVerified des Users auf true setzen ✅
 
-import { User } from "../models/User.js";
+import { User } from "../../models/User.js";
 
 export async function verifyUserEmail({ userId, sixDigitCode }) {
   const user = await User.findById(userId);
