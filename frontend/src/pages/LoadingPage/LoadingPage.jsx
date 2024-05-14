@@ -1,17 +1,23 @@
 import "./LoadingPage.css";
+import { Link } from "react-router-dom";
 
 const LoadingPage = () => {
   return (
     <section className="loadingpage">
-      <h1>Loadingpage</h1>
-      <img src="/img/reading-lady.svg" alt="" />
-      <h4>Finde dein nächstes Lieblingsbuch</h4>
-      <h2>Schlage ein neues Kapitel auf und lese die besten Bücher</h2>
-      <p>
-        Die spannendsten Reise-, Natur- und Abenteuerbücher sind nur einen Klick
-        entfernt!
-      </p>
-      <button className="btn-red">Blätter weiter</button>
+      <div>
+        <img src="/img/reading-lady.svg" alt="" />
+      </div>
+      <article>
+        <h4>Finde dein nächstes Lieblingsbuch</h4>
+        <h2>Schlage ein neues Kapitel auf und lese die besten Bücher</h2>
+        <p>
+          Die spannendsten Reise-, Natur- und Abenteuerbücher sind nur einen
+          Klick entfernt!
+        </p>
+        <Link to="/home">
+          <button className="btn-red">Blätter weiter</button>
+        </Link>
+      </article>
     </section>
   );
 };

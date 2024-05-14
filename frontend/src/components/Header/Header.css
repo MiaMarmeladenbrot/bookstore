@@ -4,6 +4,11 @@ header {
   justify-content: space-between;
 
   padding: 1.5rem;
+
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; */
 }
 
 header nav {
@@ -12,6 +17,10 @@ header nav {
   gap: 1.5rem;
 }
 
-header h2 {
+header h1 {
   color: var(--primary-light);
+}
+
+header h1 span {
+  color: var(--primary-red);
 }
