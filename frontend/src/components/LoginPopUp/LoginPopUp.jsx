@@ -10,6 +10,9 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
     setRegister(true);
   };
 
+  // fetch to login
+  // save accessToken
+
   return (
     <section>
       <Link className="btn-transparent" onClick={() => setLogin(true)}>

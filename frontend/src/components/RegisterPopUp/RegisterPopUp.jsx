@@ -12,9 +12,12 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
     setRegister(false);
   };
 
+  // fetch to register
+  // navigate to verifyEmail
+
   return (
     <section>
-      <Link className="btn-transparent" onClick={() => setRegister(true)}>
+      <Link className="btn-red" onClick={() => setRegister(true)}>
         Register
       </Link>
 

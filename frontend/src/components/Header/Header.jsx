@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
+  // states to toggle login/register-components
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
 
