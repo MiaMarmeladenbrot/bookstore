@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const SignUpPopUp = ({ signUp, setSignUp, setLogin }) => {
+const RegisterPopUp = ({ register, setRegister, setLogin }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -9,19 +9,19 @@ const SignUpPopUp = ({ signUp, setSignUp, setLogin }) => {
 
   const changePopup = () => {
     setLogin(true);
-    setSignUp(false);
+    setRegister(false);
   };
 
   return (
     <section>
-      <Link className="btn-transparent" onClick={() => setSignUp(true)}>
-        Sign Up
+      <Link className="btn-transparent" onClick={() => setRegister(true)}>
+        Register
       </Link>
 
-      {signUp ? (
+      {register ? (
         <article className="popup">
           <form>
-            <p className="close-popup" onClick={() => setSignUp(false)}>
+            <p className="close-popup" onClick={() => setRegister(false)}>
               X
             </p>
             <input
@@ -48,7 +48,7 @@ const SignUpPopUp = ({ signUp, setSignUp, setLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="btn-red">sign up</button>
+            <button className="btn-red">register</button>
             <p>
               Du hast schon einen Account?{" "}
               <Link onClick={changePopup}>Logge dich ein!</Link>
@@ -60,4 +60,4 @@ const SignUpPopUp = ({ signUp, setSignUp, setLogin }) => {
   );
 };
 
-export default SignUpPopUp;
+export default RegisterPopUp;

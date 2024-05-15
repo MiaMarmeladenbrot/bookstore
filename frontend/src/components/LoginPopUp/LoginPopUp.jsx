@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const LoginPopUp = ({ login, setLogin, setSignUp }) => {
+const LoginPopUp = ({ login, setLogin, setRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const changePopup = () => {
     setLogin(false);
-    setSignUp(true);
+    setRegister(true);
   };
 
   return (

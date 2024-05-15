@@ -1,12 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
-import LoginPopUp from "../LoginButton/LoginPopUp";
-import SignUpPopUp from "../SignUpButton/SignUpPopUp";
+import LoginPopUp from "../LoginPopUp/LoginPopUp";
+import RegisterPopUp from "../RegisterPopUp/RegisterPopUp";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
   const [login, setLogin] = useState(false);
-  const [signUp, setSignUp] = useState(false);
+  const [register, setRegister] = useState(false);
 
   return (
     <header>
@@ -19,10 +19,14 @@ const Header = () => {
         <NavLink to="/home">Dashboard</NavLink>
         <NavLink to="/cart">Warenkorb</NavLink>
         <NavLink to="/favorites">Favoriten</NavLink>
-        <LoginPopUp login={login} setLogin={setLogin} setSignUp={setSignUp} />
-        <SignUpPopUp
-          signUp={signUp}
-          setSignUp={setSignUp}
+        <LoginPopUp
+          login={login}
+          setLogin={setLogin}
+          setRegister={setRegister}
+        />
+        <RegisterPopUp
+          register={register}
+          setRegister={setRegister}
           setLogin={setLogin}
         />
       </nav>
