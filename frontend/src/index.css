@@ -48,11 +48,12 @@ h4 {
 
 p {
   color: var(--primary-light);
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
   line-height: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
+/** Allgmeine Link-Stylings */
 a {
   /* font-size: clamp(2rem, 2vw, 2rem); */
   text-decoration: none;
@@ -67,6 +68,7 @@ a:hover {
   color: var(--primary-red);
 }
 
+/** Buttons */
 .btn-red,
 .btn-transparent:hover {
   padding: 0.5rem 1.6rem;
@@ -84,5 +86,64 @@ a:hover {
   color: var(--primary-red);
   border: 1px solid var(--primary-red);
   border-radius: 2.5rem;
+  cursor: pointer;
+}
+
+/** allgemeine Formular-Stylings */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form input {
+  padding: 0.5rem 1.6rem;
+  border-radius: 2.5rem;
+  border: 0.5px solid var(--bg-dark);
+}
+
+form button {
+  width: fit-content;
+}
+
+/** Allgemeines Styling für login/register-Pop-up */
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+.popup form {
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.popup p {
+  color: var(--bg-dark);
+  font-size: 1rem;
+}
+
+.popup a {
+  color: var(--primary-red);
+}
+
+.close-popup {
+  position: absolute;
+  top: 5px;
+  right: 20px;
   cursor: pointer;
 }
