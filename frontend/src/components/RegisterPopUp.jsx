@@ -1,20 +1,41 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Popup.css";
+import { backendUrl } from "../api/api";
 
 const RegisterPopUp = ({ register, setRegister, setLogin }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const changePopup = () => {
     setLogin(true);
     setRegister(false);
   };
 
-  // fetch to register
-  // navigate to verifyEmail
+  const registerUser = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch(`${backendUrl}/api/v1/users/register`, {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({ firstname, lastname, email, password }),
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (!data.result) setErrorMessage(data.message || "Failed to register");
+
+    const userData = data.result;
+    setErrorMessage("");
+    setRegister(false);
+    navigate(`/verifyEmail/${userData._id}`);
+  };
 
   return (
     <section>
@@ -52,7 +73,10 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="btn-red">register</button>
+            <button className="btn-red" onClick={registerUser}>
+              register
+            </button>
+            {errorMessage ? <p>{errorMessage}</p> : ""}
             <p>
               Du hast schon einen Account?{" "}
               <Link onClick={changePopup}>Logge dich ein!</Link>

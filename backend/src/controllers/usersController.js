@@ -3,8 +3,8 @@ import { UsersService } from "../services/index.js";
 async function postCreateNewUserCtrl(req, res) {
   try {
     const newUser = req.body;
-    const addedUser = await UsersService.registerUser(newUser);
-    res.json(addedUser);
+    const result = await UsersService.registerUser(newUser);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res
@@ -19,8 +19,8 @@ async function postVerifyUserEmailCtrl(req, res) {
       userId: req.body.userId,
       sixDigitCode: req.body.sixDigitCode,
     };
-    const verifiedEmail = await UsersService.verifyUserEmail(verifyEmailInfo);
-    res.json({ verifiedEmail });
+    const result = await UsersService.verifyUserEmail(verifyEmailInfo);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res.json({ err, message: err.message || "Could not verify email" });
@@ -34,8 +34,8 @@ async function postLoginUserCtrl(req, res) {
       password: req.body.password,
     };
 
-    const loggedUser = await UsersService.loginUser(loginInfo);
-    res.json({ loggedUser });
+    const result = await UsersService.loginUser(loginInfo);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res.json({ err, message: err.message || "Could not login user" });
@@ -49,8 +49,8 @@ async function changeUserAdminRoleCtrl(req, res) {
       userId: req.params.userId,
       isAdmin: req.body.isAdmin,
     };
-    const changedUser = await UsersService.changeUserAdminRole(updateInfo);
-    res.json({ changedUser });
+    const result = await UsersService.changeUserAdminRole(updateInfo);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res.json({
@@ -66,12 +66,12 @@ async function patchEditUserCtrl(req, res) {
     const authenticatedUserId = req.authenticatedUserId;
     const userId = req.params.userId;
 
-    const editedUser = await UsersService.editUser(
+    const result = await UsersService.editUser(
       authenticatedUserId,
       userId,
       userUpdateInfo
     );
-    res.json(editedUser);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res
