@@ -5,11 +5,11 @@ async function postAddProductCtrl(req, res) {
     const productInfo = req.body;
     const authenticatedUserId = req.authenticatedUserId;
 
-    const addedProduct = await ProductsService.addProduct(
+    const result = await ProductsService.addProduct(
       authenticatedUserId,
       productInfo
     );
-    res.json(addedProduct);
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res
@@ -20,8 +20,8 @@ async function postAddProductCtrl(req, res) {
 
 async function getShowAllProductsCtrl(req, res) {
   try {
-    const allProducts = await ProductsService.showAllProducts();
-    res.json({ allProducts });
+    const result = await ProductsService.showAllProducts();
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res
@@ -49,12 +49,12 @@ async function patchEditProductCtrl(req, res) {
     const productId = req.params.productId;
     const productUpdateInfo = req.body;
 
-    const editedProduct = await ProductsService.editProduct(
+    const result = await ProductsService.editProduct(
       authenticatedUserId,
       productId,
       productUpdateInfo
     );
-    res.json({ editedProduct });
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res
@@ -67,11 +67,11 @@ async function deleteProductCtrl(req, res) {
   try {
     const authenticatedUserId = req.authenticatedUserId;
     const productId = req.params.productId;
-    const deletedProduct = await ProductsService.deleteProduct(
+    const result = await ProductsService.deleteProduct(
       authenticatedUserId,
       productId
     );
-    res.json({ deletedProduct });
+    res.json({ result });
   } catch (err) {
     console.log(err);
     res

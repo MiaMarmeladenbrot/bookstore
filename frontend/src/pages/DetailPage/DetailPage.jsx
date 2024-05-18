@@ -44,6 +44,7 @@ const DetailPage = () => {
         <p>{bookDetails?.isbn}</p>
         <p>{bookDetails?.variations}</p>
         <p>{bookDetails?.description}</p>
+        <p>{bookDetails?.price}</p>
         {/* Lesezeichen Komponente */}
         {/* Warenkorb Button Kombonente */}
       </article>

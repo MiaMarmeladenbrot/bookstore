@@ -1,10 +1,13 @@
+import RenderBestsellers from "../../components/RenderBestsellers/RenderBestsellers";
+
 const Dashboard = () => {
   return (
     <main className="dashboard">
-      <h1>Dashboard</h1>
-      {/* falls eingeloggt => Komponente für Favoriten, Komponente für Bestellungen? */}
-      {/* allgemeine Komponente für alle: Bestseller oä */}
-      {/* falls als Admin eingeloggt, ganz anderes Design */}
+      {/* allgemeine Komponenten für alle: Bestseller uä */}
+      <RenderBestsellers />
+
+      {/* falls eingeloggt (accessToken = true) => Komponente für Favoriten, Komponente für Bestellungen? */}
+      {/* falls als Admin eingeloggt (isAdmin = true), ganz anderes Design */}
     </main>
   );
 };
