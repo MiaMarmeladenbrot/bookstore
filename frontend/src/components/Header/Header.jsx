@@ -9,15 +9,17 @@ const Header = () => {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
 
+  // # falls es eine userId gibt, Logout anzeigen und login/register verstecken?
+
   return (
     <header>
-      <Link to="/home">
+      <Link to="/">
         <h1>
           The Bookstore <span>.</span>
         </h1>
       </Link>
       <nav>
-        <NavLink to="/home">Dashboard</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/cart">Warenkorb</NavLink>
         <NavLink to="/favorites">Favoriten</NavLink>
         <LoginPopUp

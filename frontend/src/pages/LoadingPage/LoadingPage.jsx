@@ -14,7 +14,7 @@ const LoadingPage = () => {
           Die spannendsten Reise-, Natur- und Abenteuerbücher sind nur einen
           Klick entfernt!
         </p>
-        <Link to="/home">
+        <Link to="/dashboard">
           <button className="btn-red">Blätter weiter</button>
         </Link>
       </article>
