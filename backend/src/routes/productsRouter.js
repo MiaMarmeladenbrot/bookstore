@@ -4,8 +4,9 @@ import { ProductsController } from "../controllers/productsController.js";
 
 export const productsRouter = express
   .Router()
-  .post("/api/v1/products", doJwtAuth, ProductsController.postAddProductCtrl)
   .get("/api/v1/products", ProductsController.getShowAllProductsCtrl)
+  .get("/api/v1/products/:bookId", ProductsController.getOneProductCtrl)
+  .post("/api/v1/products", doJwtAuth, ProductsController.postAddProductCtrl)
   .patch(
     "/api/v1/products/:productId",
     doJwtAuth,

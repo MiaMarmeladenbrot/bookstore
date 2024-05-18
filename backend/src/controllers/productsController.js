@@ -30,6 +30,19 @@ async function getShowAllProductsCtrl(req, res) {
   }
 }
 
+async function getOneProductCtrl(req, res) {
+  try {
+    const productId = req.params.bookId;
+    const result = await ProductsService.showOneProduct(productId);
+    res.json({ result });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not get this product" });
+  }
+}
+
 async function patchEditProductCtrl(req, res) {
   try {
     const authenticatedUserId = req.authenticatedUserId;
@@ -70,6 +83,7 @@ async function deleteProductCtrl(req, res) {
 export const ProductsController = {
   postAddProductCtrl,
   getShowAllProductsCtrl,
+  getOneProductCtrl,
   patchEditProductCtrl,
   deleteProductCtrl,
 };

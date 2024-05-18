@@ -4,16 +4,15 @@ import RegisterPopUp from "../RegisterPopUp.jsx";
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import LogoutButton from "../LogoutButton.jsx";
-import { userContext } from "../../context/Context.jsx";
+import { tokenContext, userContext } from "../../context/Context.jsx";
 
 const Header = () => {
   const { user } = useContext(userContext);
+  const { token } = useContext(tokenContext);
 
   // states to toggle login/register-components
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
-
-  // # falls es eine userId gibt, Logout anzeigen und login/register verstecken?
 
   return (
     <header>
@@ -26,7 +25,7 @@ const Header = () => {
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/cart">Warenkorb</NavLink>
         <NavLink to="/favorites">Favoriten</NavLink>
-        {user ? (
+        {user ? ( // # besser: falls accessToken existiert?
           <LogoutButton />
         ) : (
           <div>

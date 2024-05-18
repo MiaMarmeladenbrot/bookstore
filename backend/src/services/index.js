@@ -8,6 +8,7 @@ import { addProduct } from "./productsServices/addProduct.js";
 import { deleteProduct } from "./productsServices/deleteProduct.js";
 import { editProduct } from "./productsServices/editProduct.js";
 import { showAllProducts } from "./productsServices/showAllProducts.js";
+import { showOneProduct } from "./productsServices/showOneProduct.js";
 
 import { addOrder } from "./ordersServices/addOrder.js";
 import { showAllOrders } from "./ordersServices/showAllOrders.js";
@@ -25,6 +26,7 @@ export const UsersService = {
 export const ProductsService = {
   addProduct,
   showAllProducts,
+  showOneProduct,
   editProduct,
   deleteProduct,
 };
