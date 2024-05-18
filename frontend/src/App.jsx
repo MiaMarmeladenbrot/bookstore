@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import { userContext } from "./context/Context.jsx";
 import { tokenContext } from "./context/Context.jsx";
+import DetailPage from "./pages/DetailPage/DetailPage.jsx";
 
 function App() {
   const [user, setUser] = useState("");
@@ -23,6 +24,7 @@ function App() {
               <Route path="/" element={<LoadingPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/verifyEmail/:userId" element={<VerifyEmail />} />
+              <Route path="/books/:bookId" element={<DetailPage />} />
             </Routes>
           </BrowserRouter>
         </tokenContext.Provider>
