@@ -88,3 +88,21 @@ a:hover {
   border-radius: 2.5rem;
   cursor: pointer;
 }
+
+/** allgemeine Formular-Stylings */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form input {
+  padding: 0.5rem 1.6rem;
+  border-radius: 2.5rem;
+  border: 0.5px solid var(--bg-dark);
+}
+
+form button {
+  width: fit-content;
+}

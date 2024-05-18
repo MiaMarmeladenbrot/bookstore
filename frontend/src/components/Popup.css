@@ -1,21 +1,3 @@
-/** allgemeine Formular-Stylings */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-form input {
-  padding: 0.5rem 1.6rem;
-  border-radius: 2.5rem;
-  border: 0.5px solid var(--bg-dark);
-}
-
-form button {
-  width: fit-content;
-}
-
 /** Allgemeines Styling für login/register-Pop-up */
 .popup {
   position: fixed;
