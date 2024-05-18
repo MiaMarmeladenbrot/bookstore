@@ -2,9 +2,13 @@ import "./Header.css";
 import LoginPopUp from "../LoginPopUp.jsx";
 import RegisterPopUp from "../RegisterPopUp.jsx";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import LogoutButton from "../LogoutButton.jsx";
+import { userContext } from "../../context/Context.jsx";
 
 const Header = () => {
+  const { user } = useContext(userContext);
+
   // states to toggle login/register-components
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
@@ -22,16 +26,22 @@ const Header = () => {
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/cart">Warenkorb</NavLink>
         <NavLink to="/favorites">Favoriten</NavLink>
-        <LoginPopUp
-          login={login}
-          setLogin={setLogin}
-          setRegister={setRegister}
-        />
-        <RegisterPopUp
-          register={register}
-          setRegister={setRegister}
-          setLogin={setLogin}
-        />
+        {user ? (
+          <LogoutButton />
+        ) : (
+          <div>
+            <LoginPopUp
+              login={login}
+              setLogin={setLogin}
+              setRegister={setRegister}
+            />
+            <RegisterPopUp
+              register={register}
+              setRegister={setRegister}
+              setLogin={setLogin}
+            />
+          </div>
+        )}
       </nav>
     </header>
   );

@@ -24,3 +24,9 @@ header h1 {
 header h1 span {
   color: var(--primary-red);
 }
+
+header nav div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

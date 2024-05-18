@@ -80,6 +80,11 @@ async function patchEditUserCtrl(req, res) {
   }
 }
 
+// async function logoutUser(req, res) {
+//   req.session.refreshToken = null;
+//   res.status(200).json({ result: { message: "You are now logged out." } });
+// }
+
 export const UsersController = {
   postCreateNewUserCtrl,
   postVerifyUserEmailCtrl,

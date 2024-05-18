@@ -8,8 +8,8 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
   const { user, setUser } = useContext(userContext);
   const { token, setToken } = useContext(tokenContext);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mia.mecklenburg@gmx.net");
+  const [password, setPassword] = useState("Mia123");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();

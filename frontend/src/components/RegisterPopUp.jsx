@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Popup.css";
 import { backendUrl } from "../api/api";
+import { userContext } from "../context/Context";
 
 const RegisterPopUp = ({ register, setRegister, setLogin }) => {
+  const { user, setUser } = useContext(userContext);
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +35,7 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
     if (!data.result) setErrorMessage(data.message || "Failed to register");
 
     const userData = data.result;
+    setUser(userData);
     setErrorMessage("");
     setRegister(false);
     navigate(`/verifyEmail/${userData._id}`);
@@ -51,19 +55,19 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
             </p>
             <input
               type="text"
-              placeholder="firstname"
+              placeholder="Vorname"
               value={firstname}
               onChange={(e) => setFirstname(e.target.value)}
             />
             <input
               type="text"
-              placeholder="lastname"
+              placeholder="Nachname"
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
             />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="E-Mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
