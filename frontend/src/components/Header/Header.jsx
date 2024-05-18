@@ -1,6 +1,6 @@
 import "./Header.css";
-import LoginPopUp from "../LoginPopUp/LoginPopUp";
-import RegisterPopUp from "../RegisterPopUp/RegisterPopUp";
+import LoginPopUp from "../LoginPopUp.jsx";
+import RegisterPopUp from "../RegisterPopUp.jsx";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ const Header = () => {
     <header>
       <Link to="/home">
         <h1>
-          Booksta<span>.</span>
+          The Bookstore <span>.</span>
         </h1>
       </Link>
       <nav>

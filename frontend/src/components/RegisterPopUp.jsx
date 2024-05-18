@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Popup.css";
 
 const RegisterPopUp = ({ register, setRegister, setLogin }) => {
   const [firstname, setFirstname] = useState("");
