@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { backendUrl } from "../../api/api";
 import "./DetailPage.css";
+import BackButton from "../../components/BackButton/BackButton";
+import BookmarkIcon from "../../components/BookmarkIcon/BookmarkIcon";
 
 const DetailPage = () => {
   const [bookDetails, setBookDetails] = useState({});
@@ -30,23 +32,32 @@ const DetailPage = () => {
 
   return (
     <main className="detailpage">
-      {/* // # multer noch im backend integrieren */}
-      <img
-        src={`${backendUrl}/data/${bookDetails?.image}`}
-        // src={"http://localhost:3003/" + transaction.fileName}
-        alt={bookDetails?.title}
-      />
-
+      <BackButton />
       <article>
-        <h2>{bookDetails?.title}</h2>
-        <p>{bookDetails?.author}</p>
-        <p>{bookDetails?.category}</p>
-        <p>{bookDetails?.isbn}</p>
-        <p>{bookDetails?.variations}</p>
-        <p>{bookDetails?.description}</p>
-        <p>{bookDetails?.price}</p>
-        {/* Lesezeichen Komponente */}
-        {/* Warenkorb Button Kombonente */}
+        <img
+          src={`${backendUrl}/${bookDetails?.image}`}
+          // src={`${backendUrl}/data/images/${bookDetails?.image}`}
+          // src={`${backendUrl}/backend/data/images/${bookDetails?.image}`}
+          // src={"http://localhost:3003/" + transaction.fileName}
+          alt={bookDetails?.title}
+        />
+
+        <div>
+          <h2>{bookDetails?.title}</h2>
+          <p>{bookDetails?.author}</p>
+          <p>{bookDetails?.category}</p>
+          <p>{bookDetails?.isbn}</p>
+          <p>{bookDetails?.variations}</p>
+          <p>{bookDetails?.description}</p>
+          <p>{bookDetails?.price}</p>
+          {/* Lesezeichen Komponente */}
+          {/* Warenkorb Button Kombonente */}
+
+          <div className="detailpage-icons">
+            <BookmarkIcon />
+            <Link className="btn-transparent">In den Warenkorb legen</Link>
+          </div>
+        </div>
       </article>
     </main>
   );

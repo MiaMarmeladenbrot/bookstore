@@ -1,5 +1,25 @@
-.detailpage {
+.detailpage article {
   display: flex;
   justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
+
+  padding: 3rem 1.5rem;
+}
+
+.detailpage img {
+  max-width: 500px;
+  object-fit: contain;
+}
+
+.detailpage article div h2 {
+  max-width: 20ch;
+}
+
+.detailpage article div p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.detailpage-icons {
+  display: flex;
+  gap: 20px;
 }

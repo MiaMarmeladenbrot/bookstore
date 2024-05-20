@@ -2,26 +2,26 @@ import { useContext } from "react";
 import { allProductsFetch } from "../../context/Context";
 import { backendUrl } from "../../api/api";
 import { Link } from "react-router-dom";
+import "./RenderBestsellers.css";
 
 const RenderBestsellers = () => {
   const { allProducts } = useContext(allProductsFetch);
 
   return (
-    <section>
+    <section className="render-bestsellers">
       <h2>Unsere Bestseller</h2>
-      {allProducts?.result?.map((item) => (
-        <div key={item._id}>
-          <img
-            src={`${backendUrl}/data/${item.image}`}
-            // src={"http://localhost:3003/" + transaction.fileName}
-            alt={item.title}
-          />
-          <p>{item.title}</p>
-          <p>{item.author}</p>
-          <p>{item.price} €</p>
-          <Link to={`/books/${item._id}`}>Lies mehr</Link>
-        </div>
-      ))}
+      <article>
+        {allProducts?.result?.map((item) => (
+          <Link key={item._id} to={`/books/${item._id}`}>
+            <div>
+              <img src={`${backendUrl}/${item?.image}`} alt={item.title} />
+              <h3>{item.title}</h3>
+              <p>{item.author}</p>
+              <p>{item.price} €</p>
+            </div>
+          </Link>
+        ))}
+      </article>
     </section>
   );
 };

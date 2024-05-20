@@ -1,0 +1,18 @@
+.back-arrow {
+  /* display: flex;
+  align-items: center; */
+  position: relative;
+  cursor: pointer;
+
+  fill: var(--primary-red);
+  width: 25px;
+  position: absolute;
+  top: 8rem;
+  left: 1.5rem;
+}
+
+.back-arrow.dark {
+  fill: var(--color-dm-blue);
+  background-color: white;
+  border-radius: 100%;
+}
