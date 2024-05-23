@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // aus der .env-Datei die jeweiligen geheimen Daten holen, um Google Apis tatsächlich nutzen zu können:
-const GMAIL_ADRESS = process.env.GMAIL_ADRESS; // meine gmail-adresse
+const GMAIL_ADDRESS = process.env.GMAIL_ADDRESS; // meine gmail-adresse
 const CLIENT_ID = process.env.GMAIL_CLIENT_ID; // meine client id (zu finden unter google apis)
 const CLIENT_SECRET = process.env.GMAIL_CLIENT_SECRET; // mein client schlüssel (zu finden unter google apis)
 const REDIRECT_URI = process.env.GMAIL_REDIRECT_URI; // https://developers.google.com/oauthplayground
@@ -27,7 +27,7 @@ export async function sendEmail({ to, subject, text }) {
       service: "gmail",
       auth: {
         type: "OAuth2",
-        user: GMAIL_ADRESS,
+        user: GMAIL_ADDRESS,
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
@@ -36,7 +36,7 @@ export async function sendEmail({ to, subject, text }) {
     });
 
     const sentMessageInfo = await transporter.sendMail({
-      from: "Mia from the Shop",
+      from: "Mia from the Bookstore",
       to,
       subject,
       text,
