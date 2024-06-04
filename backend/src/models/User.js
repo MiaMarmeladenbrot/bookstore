@@ -9,8 +9,13 @@ const userSchema = new mongoose.Schema(
     isAdmin: { type: Boolean, default: false },
     passwordHash: { type: String, required: true, trim: true },
     passwordSalt: { type: String, required: true, trim: true },
-    isEmailVerified: { type: Boolean, default: false },
-    sixDigitCode: { type: String, default: () => generateRandomSixDigitCode() },
+    isEmailVerified: { type: Boolean, default: false, required: true },
+    sixDigitCode: {
+      type: String,
+      default: () => generateRandomSixDigitCode(),
+      required: true,
+      trim: true,
+    },
   },
   { collection: "users", timestamps: true }
 );

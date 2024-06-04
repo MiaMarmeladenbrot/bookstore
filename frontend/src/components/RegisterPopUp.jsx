@@ -32,7 +32,8 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
     const data = await res.json();
     console.log(data);
 
-    if (!data.result) setErrorMessage(data.message || "Failed to register");
+    if (!data.result)
+      return setErrorMessage(data.message || "Failed to register");
 
     const userData = data.result;
     setUser(userData);
