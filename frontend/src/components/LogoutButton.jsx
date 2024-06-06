@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { userContext } from "../context/Context";
+import { tokenContext, userContext } from "../context/Context";
 import { backendUrl } from "../api/api";
 
 const LogoutButton = () => {
-  const { user } = useContext(userContext);
+  const { setToken } = useContext(tokenContext);
 
   const logoutUser = async (e) => {
     e.preventDefault();

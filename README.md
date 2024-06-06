@@ -9,7 +9,7 @@ https://bookstore-frontend-ixz6.onrender.com/
 https://www.figma.com/board/oY5zxXlDqhnRjIWNPxC3BL/2.-Standbein?node-id=0-1&t=JJYBYmKRIxzXJrMn-0
 
 - google refreshToken in render erneuern
-- accessToken und refreshToken
+- accessToken und refreshToken => stattdessen umstellen auf Stefans Version?
 - Bilder / Upload implementieren
 - order state ändern
 - get top products
@@ -21,7 +21,7 @@ https://www.figma.com/board/oY5zxXlDqhnRjIWNPxC3BL/2.-Standbein?node-id=0-1&t=JJ
 
 https://www.figma.com/design/nlw57Pes1ymPsq7sDlBr83/Booksta?node-id=0-1&t=72gDShbH73KKlY90-0
 
-- accessToken und refreshToken
+- accessToken und refreshToken => Stefan?
 - logout
 - conditional rendering für Dashboard: abhängig davon, ob accessToken vorhanden ist und welchen Status isAdmin hat, andere Komponenten anzeigen? AuthRequired.jsx accessToken abfragen und Status von isAdmin?
 - AuthRequired für Dashboard, Profil, Favoriten, Bestellungen, Warenkorb --> https://www.robinwieruch.de/react-router-private-routes/
