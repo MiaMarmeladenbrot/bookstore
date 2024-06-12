@@ -12,7 +12,7 @@ import { userToView } from "../../utils/userToView.js";
 
 export async function loginUser({ email, password }) {
   const user = await User.findOne({ email });
-  if (!user) throw new Error("Could not find user with the email: ", email);
+  if (!user) throw new Error("Could not find user with this email.");
 
   if (!user.isEmailVerified) throw new Error("Email is not verified");
 

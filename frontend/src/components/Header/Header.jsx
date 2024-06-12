@@ -25,7 +25,7 @@ const Header = () => {
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/cart">Warenkorb</NavLink>
         <NavLink to="/favorites">Favoriten</NavLink>
-        {user ? ( // # besser: falls accessToken existiert?
+        {user ? (
           <LogoutButton />
         ) : (
           <div>

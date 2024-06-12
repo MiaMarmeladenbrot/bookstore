@@ -5,11 +5,11 @@ import { backendUrl } from "../api/api";
 import { tokenContext, userContext } from "../context/Context";
 
 const LoginPopUp = ({ login, setLogin, setRegister }) => {
-  const { user, setUser } = useContext(userContext);
-  const { token, setToken } = useContext(tokenContext);
+  const { setUser } = useContext(userContext);
+  const { setToken } = useContext(tokenContext);
 
-  const [email, setEmail] = useState("mia.mecklenburg@gmx.net");
-  const [password, setPassword] = useState("Mia123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -29,17 +29,16 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
     });
 
     const data = await res.json();
+    console.log(data);
 
-    if (!data.result)
+    if (!data.user)
       return setErrorMessage(
-        data.message ||
-          "Leider hat der Login nicht geklappt, versuch's noch mal."
+        "Leider hat der Login nicht geklappt, versuch's noch mal."
       );
 
     navigate("/dashboard");
 
-    setToken(data.result.tokens.accessToken);
-    setUser(data.result.user);
+    setUser(data.user);
     setLogin(false);
   };
 
@@ -70,7 +69,7 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
             <button className="btn-red" onClick={loginUser}>
               login
             </button>
-            {errorMessage ? { errorMessage } : ""}
+            {errorMessage ? <p>{errorMessage} </p> : ""}
             <p>
               Du hast noch keinen Account?{" "}
               <Link onClick={changePopup}>Registrier dich jetzt!</Link>

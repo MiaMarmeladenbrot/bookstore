@@ -85,7 +85,7 @@ async function patchEditUserCtrl(req, res) {
 }
 
 async function postLogoutUserCtrl(req, res) {
-  req.session.refreshToken = null;
+  res.clearCookie("accessToken");
   res.status(200).json({ result: { message: "You are now logged out." } });
 }
 

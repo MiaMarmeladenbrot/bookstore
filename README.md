@@ -8,8 +8,7 @@ https://bookstore-frontend-ixz6.onrender.com/
 
 https://www.figma.com/board/oY5zxXlDqhnRjIWNPxC3BL/2.-Standbein?node-id=0-1&t=JJYBYmKRIxzXJrMn-0
 
-- google refreshToken in render erneuern
-- accessToken und refreshToken => stattdessen umstellen auf Stefans Version?
+- google GaxiosError: invalid_grant fixen
 - Bilder / Upload implementieren
 - order state ändern
 - get top products

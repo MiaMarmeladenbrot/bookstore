@@ -50,7 +50,7 @@ async function getShowUserOrdersCtrl(req, res) {
     console.log(err);
     res
       .status(500)
-      .json({ err, messsage: err.message || "Could not find user orders." });
+      .json({ err, messsage: err.message || "Could not find user's orders." });
   }
 }
 
