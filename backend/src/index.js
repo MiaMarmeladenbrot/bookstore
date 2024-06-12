@@ -14,9 +14,9 @@ app.use(express.static("uploads"));
 // app.use("/uploads", express.static(path.join(__dirname + "/backend/data/images")))
 app.use(express.json());
 
-app.use(usersRouter);
-app.use(productsRouter);
-app.use(ordersRouter);
+app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/products", productsRouter);
+app.use("/api/v1/orders", ordersRouter);
 
 try {
   await connectToDatabase();

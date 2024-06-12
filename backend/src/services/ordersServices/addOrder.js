@@ -19,7 +19,6 @@ export async function addOrder(authenticatedUserId, orderInfo) {
     (acc, obj) => acc + obj.price,
     0
   );
-  //   console.log("sumPriceOfAllProducts:", sumPriceOfAllProducts);
 
   const orderInfoWithPrice = {
     ...orderInfo,

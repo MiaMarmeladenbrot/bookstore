@@ -4,13 +4,13 @@ import { doJwtAuth } from "../middlewares/doJwtAuth.js";
 
 export const usersRouter = express
   .Router()
-  .post("/api/v1/users/register", UsersController.postCreateNewUserCtrl)
-  .post("/api/v1/users/verifyEmail", UsersController.postVerifyUserEmailCtrl)
-  .post("/api/v1/users/login", UsersController.postLoginUserCtrl)
+  .post("/register", UsersController.postCreateNewUserCtrl)
+  .post("/verifyEmail", UsersController.postVerifyUserEmailCtrl)
+  .post("/login", UsersController.postLoginUserCtrl)
   .patch(
-    "/api/v1/users/:userId/changeRole",
+    "/:userId/changeRole",
     doJwtAuth,
     UsersController.changeUserAdminRoleCtrl
   )
-  .patch("/api/v1/users/:userId", doJwtAuth, UsersController.patchEditUserCtrl)
-  .post("/api/v1/users/logout", UsersController.postLogoutUserCtrl);
+  .patch("/:userId", doJwtAuth, UsersController.patchEditUserCtrl)
+  .post("/logout", UsersController.postLogoutUserCtrl);
