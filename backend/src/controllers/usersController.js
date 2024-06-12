@@ -34,8 +34,12 @@ async function postLoginUserCtrl(req, res) {
       password: req.body.password,
     };
 
-    const result = await UsersService.loginUser(loginInfo);
-    res.json({ result });
+    const { user, tokens } = await UsersService.loginUser(loginInfo);
+    res.cookie("accessToken", tokens.accessToken, {
+      maxAge: 7 * 24 * 3600 * 1000,
+      httpOnly: true,
+    });
+    res.json({ user });
   } catch (err) {
     console.log(err);
     res.json({ err, message: err.message || "Could not login user" });

@@ -9,8 +9,8 @@ export const usersRouter = express
   .post("/login", UsersController.postLoginUserCtrl)
   .patch(
     "/:userId/changeRole",
-    doJwtAuth,
+    doJwtAuth({ onlyAdmins: true }),
     UsersController.changeUserAdminRoleCtrl
   )
-  .patch("/:userId", doJwtAuth, UsersController.patchEditUserCtrl)
+  .patch("/:userId", doJwtAuth(), UsersController.patchEditUserCtrl)
   .post("/logout", UsersController.postLogoutUserCtrl);

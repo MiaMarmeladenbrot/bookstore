@@ -3,7 +3,7 @@ import { ProductsService } from "../services/index.js";
 async function postAddProductCtrl(req, res) {
   try {
     const productInfo = req.body;
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
 
     const result = await ProductsService.addProduct(
       authenticatedUserId,
@@ -45,7 +45,7 @@ async function getOneProductCtrl(req, res) {
 
 async function patchEditProductCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const productId = req.params.productId;
     const productUpdateInfo = req.body;
 
@@ -65,7 +65,7 @@ async function patchEditProductCtrl(req, res) {
 
 async function deleteProductCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const productId = req.params.productId;
     const result = await ProductsService.deleteProduct(
       authenticatedUserId,

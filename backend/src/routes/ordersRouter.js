@@ -5,6 +5,10 @@ import { OrdersController } from "../controllers/ordersController.js";
 export const ordersRouter = express
   .Router()
   .post("/", doJwtAuth, OrdersController.postAddOrderCtrl)
-  .get("/", doJwtAuth, OrdersController.getShowAllOrdersCtrl)
-  .get("/:userId", doJwtAuth, OrdersController.getShowUserOrdersCtrl)
-  .patch("/:orderId", doJwtAuth, OrdersController.patchEditOrderCtrl);
+  .get(
+    "/",
+    doJwtAuth({ onlyAdmins: true }),
+    OrdersController.getShowAllOrdersCtrl
+  )
+  .get("/:userId", doJwtAuth(), OrdersController.getShowUserOrdersCtrl)
+  .patch("/:orderId", doJwtAuth(), OrdersController.patchEditOrderCtrl);

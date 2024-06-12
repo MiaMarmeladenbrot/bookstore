@@ -2,13 +2,13 @@ import { OrderService } from "../services/index.js";
 
 async function postAddOrderCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const orderInfo = {
       // date, // sollte automatisch mit default aktuelles Datum erstellt werden
       products: req.body.products,
       // state // sollte automatisch mit default false erstellt werden
       // price // wird im Service berechnet
-      customer: req.authenticatedUserId,
+      customer: authenticatedUserId,
     };
 
     const addedOrder = await OrderService.addOrder(
@@ -26,7 +26,7 @@ async function postAddOrderCtrl(req, res) {
 
 async function getShowAllOrdersCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const allOrders = await OrderService.showAllOrders(authenticatedUserId);
     res.json({ allOrders });
   } catch (err) {
@@ -39,7 +39,7 @@ async function getShowAllOrdersCtrl(req, res) {
 
 async function getShowUserOrdersCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const userId = req.params.userId;
     const userOrders = await OrderService.showUserOrders(
       authenticatedUserId,
@@ -56,7 +56,7 @@ async function getShowUserOrdersCtrl(req, res) {
 
 async function patchEditOrderCtrl(req, res) {
   try {
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const userId = req.body.customer;
     const orderId = req.params.orderId;
     const orderUpdateInfo = req.body;

@@ -6,6 +6,18 @@ export const productsRouter = express
   .Router()
   .get("/", ProductsController.getShowAllProductsCtrl)
   .get("/:bookId", ProductsController.getOneProductCtrl)
-  .post("/", doJwtAuth, ProductsController.postAddProductCtrl)
-  .patch("/:productId", doJwtAuth, ProductsController.patchEditProductCtrl)
-  .delete("/:productId", doJwtAuth, ProductsController.deleteProductCtrl);
+  .post(
+    "/",
+    doJwtAuth({ onlyAdmins: true }),
+    ProductsController.postAddProductCtrl
+  )
+  .patch(
+    "/:productId",
+    doJwtAuth({ onlyAdmins: true }),
+    ProductsController.patchEditProductCtrl
+  )
+  .delete(
+    "/:productId",
+    doJwtAuth({ onlyAdmins: true }),
+    ProductsController.deleteProductCtrl
+  );
