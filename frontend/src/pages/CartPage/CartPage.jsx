@@ -11,7 +11,7 @@ const CartPage = () => {
   //   }
   // return {cart}
 
-  return <h1>Show Cart</h1>;
+  return <h2>Show Cart</h2>;
 };
 
 export default CartPage;

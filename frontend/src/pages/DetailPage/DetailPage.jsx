@@ -15,7 +15,6 @@ const DetailPage = () => {
       .then((data) => setBookDetails(data.result))
       .catch((err) => console.log(err));
   }, []);
-  console.log(bookDetails);
   // author: "Hannah Emde"
   // category: "Reiseliteratur"
   // createdAt: "2024-05-14T09:57:32.070Z"

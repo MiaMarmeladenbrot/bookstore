@@ -49,7 +49,7 @@ async function postLoginUserCtrl(req, res) {
 async function changeUserAdminRoleCtrl(req, res) {
   try {
     const updateInfo = {
-      adminUserId: req.authenticatedUserId,
+      adminUserId: req.authenticatedUser._id,
       userId: req.params.userId,
       isAdmin: req.body.isAdmin,
     };
@@ -67,7 +67,7 @@ async function changeUserAdminRoleCtrl(req, res) {
 async function patchEditUserCtrl(req, res) {
   try {
     const userUpdateInfo = req.body;
-    const authenticatedUserId = req.authenticatedUserId;
+    const authenticatedUserId = req.authenticatedUser._id;
     const userId = req.params.userId;
 
     const result = await UsersService.editUser(

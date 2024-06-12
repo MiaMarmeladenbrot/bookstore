@@ -9,6 +9,8 @@ import DetailPage from "./pages/DetailPage/DetailPage.jsx";
 import { userContext } from "./context/Context.jsx";
 import { allProductsFetch } from "./context/Context.jsx";
 import { backendUrl } from "./api/api.js";
+import CartPage from "./pages/CartPage/CartPage.jsx";
+import BookmarksPage from "./pages/BookmarksPage/BookmarksPage.jsx";
 
 function App() {
   const [user, setUser] = useState();
@@ -42,6 +44,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/verifyEmail/:userId" element={<VerifyEmail />} />
               <Route path="/books/:bookId" element={<DetailPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/bookmarks" element={<BookmarksPage />} />
             </Routes>
           </BrowserRouter>
         </allProductsFetch.Provider>

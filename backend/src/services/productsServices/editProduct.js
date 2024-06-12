@@ -12,7 +12,7 @@ export async function editProduct(
   productUpdateInfo
 ) {
   const user = await User.findById(authenticatedUserId);
-  console.log(user);
+
   if (!user.isAdmin)
     throw new Error("You are not authorized to edit products.");
 

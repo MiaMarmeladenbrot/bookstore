@@ -4,5 +4,6 @@ export function userToView(user) {
     firstname: user.firstname,
     lastname: user.lastname,
     email: user.email,
+    isAdmin: user.isAdmin,
   };
 }

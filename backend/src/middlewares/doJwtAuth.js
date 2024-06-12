@@ -8,14 +8,11 @@ export const doJwtAuth =
   ({ onlyAdmins } = { onlyAdmins: false }) =>
   (req, res, next) => {
     try {
-      console.log(req.cookies.accessToken);
-
       const { accessToken } = req.cookies;
-      console.log(accessToken);
+
       if (!accessToken) throw new Error("not authorized");
 
       const verifiedToken = jwt.verify(accessToken, jwtSecret);
-      console.log(verifiedToken);
 
       if (onlyAdmins && !verifiedToken.isAdmin)
         throw new Error("Only admins are authorized to do this.");

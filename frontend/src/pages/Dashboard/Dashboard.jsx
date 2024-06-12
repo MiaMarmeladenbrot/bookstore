@@ -1,13 +1,25 @@
-import RenderBestsellers from "../../components/RenderBestsellers/RenderBestsellers";
+import "./Dashboard.css";
+import { useContext } from "react";
+import DashboardForCustomers from "../../components/DashboardForCustomers.jsx/DashboardForCustomers";
+import { userContext } from "../../context/Context";
+import DashboardForAll from "../../components/DashboardForAll/DashboardForAll";
+import DashboardForAdmins from "../../components/DashboardForAdmins/DashboardForAdmins";
 
 const Dashboard = () => {
+  const { user } = useContext(userContext);
+  console.log(user);
   return (
     <main className="dashboard">
-      {/* allgemeine Komponenten für alle: Bestseller uä */}
-      <RenderBestsellers />
+      {/* Dashboard Overview for all unlogged visitors */}
+      {!user && <DashboardForAll />}
 
-      {/* falls eingeloggt (accessToken = true) => Komponente für Favoriten, Komponente für Bestellungen? */}
-      {/* falls als Admin eingeloggt (isAdmin = true), ganz anderes Design */}
+      {user && user.isAdmin ? (
+        //  Dashboard Overview for all admins
+        <DashboardForAdmins />
+      ) : (
+        //  Dashboard Overview for all logged in customers
+        <DashboardForCustomers />
+      )}
     </main>
   );
 };
