@@ -1,15 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Popup.css";
 import { backendUrl } from "../api/api";
-import { tokenContext, userContext } from "../context/Context";
+import { userContext } from "../context/Context";
 
 const LoginPopUp = ({ login, setLogin, setRegister }) => {
   const { setUser } = useContext(userContext);
-  const { setToken } = useContext(tokenContext);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mia.mecklenburg@gmx.net");
+  const [password, setPassword] = useState("mia");
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -25,11 +24,11 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
     const res = await fetch(`${backendUrl}/api/v1/users/login`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
+      credentials: "include",
       body: JSON.stringify({ email, password }),
     });
 
     const data = await res.json();
-    console.log(data);
 
     if (!data.user)
       return setErrorMessage(
@@ -39,6 +38,9 @@ const LoginPopUp = ({ login, setLogin, setRegister }) => {
     navigate("/dashboard");
 
     setUser(data.user);
+    // save user to local storage for staying logged in
+    localStorage.setItem("user", JSON.stringify(data.user));
+
     setLogin(false);
   };
 

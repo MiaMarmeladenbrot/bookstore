@@ -5,7 +5,7 @@ import { backendUrl } from "../api/api";
 import { userContext } from "../context/Context";
 
 const RegisterPopUp = ({ register, setRegister, setLogin }) => {
-  const { user, setUser } = useContext(userContext);
+  const { setUser } = useContext(userContext);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -30,13 +30,15 @@ const RegisterPopUp = ({ register, setRegister, setLogin }) => {
     });
 
     const data = await res.json();
-    console.log(data);
 
     if (!data.result)
       return setErrorMessage(data.message || "Failed to register");
 
     const userData = data.result;
     setUser(userData);
+    // save user to local storage for staying logged in
+    localStorage.setItem("user", JSON.stringify(userData));
+
     setErrorMessage("");
     setRegister(false);
     navigate(`/verifyEmail/${userData._id}`);

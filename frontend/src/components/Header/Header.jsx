@@ -4,11 +4,10 @@ import RegisterPopUp from "../RegisterPopUp.jsx";
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import LogoutButton from "../LogoutButton.jsx";
-import { tokenContext, userContext } from "../../context/Context.jsx";
+import { userContext } from "../../context/Context.jsx";
 
 const Header = () => {
   const { user } = useContext(userContext);
-  const { token } = useContext(tokenContext);
 
   // states to toggle login/register-components
   const [login, setLogin] = useState(false);
