@@ -25,6 +25,6 @@ export async function addOrder(authenticatedUserId, orderInfo) {
     price: sumPriceOfAllProducts,
   };
 
-  const addedOrder = Order.create(orderInfoWithPrice);
+  const addedOrder = await Order.create(orderInfoWithPrice);
   return addedOrder;
 }

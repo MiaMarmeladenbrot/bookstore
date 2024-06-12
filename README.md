@@ -13,7 +13,6 @@ https://www.figma.com/board/oY5zxXlDqhnRjIWNPxC3BL/2.-Standbein?node-id=0-1&t=JJ
 - Bilder / Upload implementieren
 - order state ändern
 - get top products
-- save items to cart - cart-Entität?
 - post favorites
 - get favorites
 
@@ -23,6 +22,8 @@ https://www.figma.com/design/nlw57Pes1ymPsq7sDlBr83/Booksta?node-id=0-1&t=72gDSh
 
 - accessToken und refreshToken => Stefan?
 - logout
+- Fetches in api.js auslagern?
+- CartPage.jsx Ideen
 - conditional rendering für Dashboard: abhängig davon, ob accessToken vorhanden ist und welchen Status isAdmin hat, andere Komponenten anzeigen? AuthRequired.jsx accessToken abfragen und Status von isAdmin?
 - AuthRequired für Dashboard, Profil, Favoriten, Bestellungen, Warenkorb --> https://www.robinwieruch.de/react-router-private-routes/
 - kein AuthRequired für Loading, Dashboard-öffentliche-Komponente, Detailpages
