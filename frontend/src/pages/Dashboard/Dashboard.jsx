@@ -7,7 +7,6 @@ import DashboardForAdmins from "../../components/DashboardForAdmins/DashboardFor
 
 const Dashboard = () => {
   const { user } = useContext(userContext);
-  console.log(user);
   return (
     <main className="dashboard">
       {/* Dashboard Overview for all unlogged visitors */}

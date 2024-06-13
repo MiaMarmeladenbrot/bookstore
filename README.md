@@ -4,12 +4,16 @@
 
 https://bookstore-frontend-ixz6.onrender.com/
 
+## To check
+
+- GMAIL Api längerer RefreshToken?!
+- Deployment via vercel wg. Ladezeit?
+
 ## Todos Backend
 
 https://www.figma.com/board/oY5zxXlDqhnRjIWNPxC3BL/2.-Standbein?node-id=0-1&t=JJYBYmKRIxzXJrMn-0
 
-- google GaxiosError: invalid_grant fixen
-- Bilder / Upload implementieren
+- Bilder / Upload implementieren -> mit cloudinary?
 - order state ändern
 - get top products
 - post favorites
