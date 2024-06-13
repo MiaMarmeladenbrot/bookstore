@@ -3,10 +3,10 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser"; // für middleware auth
 
-import { connectToDatabase } from "./models/index.js";
-import { usersRouter } from "./routes/usersRouter.js";
-import { productsRouter } from "./routes/productsRouter.js";
-import { ordersRouter } from "./routes/ordersRouter.js";
+import { connectToDatabase } from "./src/models/index.js";
+import { usersRouter } from "./src/routes/usersRouter.js";
+import { productsRouter } from "./src/routes/productsRouter.js";
+import { ordersRouter } from "./src/routes/ordersRouter.js";
 
 const app = express();
 
