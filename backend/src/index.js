@@ -18,7 +18,10 @@ app.use(express.static("uploads"));
 // app.use("/uploads", express.static(path.join(__dirname + "/backend/data/images")))
 app.use(express.json());
 
-app.get("/", "hello");
+app.use("/", (req, res) => {
+  res.send("Server is running ...");
+});
+
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/products", productsRouter);
 app.use("/api/v1/orders", ordersRouter);
