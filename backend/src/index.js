@@ -15,7 +15,7 @@ app.use(cookieParser()); // für middleware auth
 
 app.use(morgan("dev"));
 app.use(express.static("uploads"));
-// app.use("/uploads", express.static(path.join(__dirname + "/backend/data/images")))
+// app.use("/uploads", express.static(path.join(__dirname + "/backend/data/images"))))
 app.use(express.json());
 
 app.use("/api/v1/users", usersRouter);
