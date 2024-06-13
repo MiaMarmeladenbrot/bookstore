@@ -8,6 +8,7 @@ https://bookstore-frontend-ixz6.onrender.com/
 
 - GMAIL Api längerer RefreshToken?!
 - Deployment via vercel wg. Ladezeit?
+- sendMails funktioniert local, aber nicht deployed?
 
 ## Todos Backend
 
